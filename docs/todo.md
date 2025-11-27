@@ -3,10 +3,16 @@
 # v0.9.0
 
 - [ ] local/develop/staging/productionなどの、各環境への対応
-- [ ] bwコマンド依存からの脱却
 - [ ] dotenvsフォルダがない場合、新規作成するかどうか
-- [ ] Homebrew本家への登録
+
+
+# v0.10.0
+- [ ] bwコマンド依存からの脱却
 - [ ] Linux版ビルド＆Homebrew公開
+
+# until v1.0.0
+
+- [ ] Homebrew本家への登録
 
 ## after v1.0.0
 - [ ] dotenvsディレクトリの別名設定
