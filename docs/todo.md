@@ -2,7 +2,7 @@
 
 ## v0.3.0
 
-- [ ] bwenv pushコマンドの実装
+- [x] bwenv pushコマンドの実装
 - [ ] bwenv pullコマンドの実装
 
 ## v0.4.0
