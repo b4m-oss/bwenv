@@ -7,34 +7,31 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/manifoldco/promptui"
 	"golang.org/x/term"
 )
 
 // SelectHostType prompts user to select between Cloud and Self-hosted
 func SelectHostType() (string, error) {
-	reader := bufio.NewReader(os.Stdin)
-
-	for {
-		fmt.Print("Bitwarden Cloud or Self-hosted? (cloud/selfhosted): ")
-		input, err := reader.ReadString('\n')
-		if err != nil {
-			return "", fmt.Errorf("failed to read input: %w", err)
-		}
-
-		input = strings.TrimSpace(strings.ToLower(input))
-		if input == "cloud" || input == "selfhosted" {
-			return input, nil
-		}
-
-		fmt.Println("Invalid input. Please enter 'cloud' or 'selfhosted'")
+	prompt := promptui.Select{
+		Label: "Bitwarden Cloud or Self-hosted?",
+		Items: []string{"cloud", "selfhosted"},
 	}
+
+	index, result, err := prompt.Run()
+	if err != nil {
+		return "", fmt.Errorf("failed to select host type: %w", err)
+	}
+
+	_ = index // index is not used but returned by prompt.Run()
+	return result, nil
 }
 
 // InputURL prompts user to enter self-hosted URL
 func InputURL() (string, error) {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Enter self-hosted URL: ")
+	Question("Enter self-hosted URL: ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		return "", fmt.Errorf("failed to read input: %w", err)
@@ -52,7 +49,7 @@ func InputURL() (string, error) {
 func InputEmail() (string, error) {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Enter email address: ")
+	Question("Enter email address: ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		return "", fmt.Errorf("failed to read input: %w", err)
@@ -68,7 +65,7 @@ func InputEmail() (string, error) {
 
 // InputPassword prompts user to enter password (hidden input)
 func InputPassword() (string, error) {
-	fmt.Print("Enter password: ")
+	Question("Enter password: ")
 
 	// Read password without echoing to terminal
 	passwordBytes, err := term.ReadPassword(int(syscall.Stdin))
