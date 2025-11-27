@@ -36,7 +36,7 @@ This project migrates our hand-maded shell scripts to modern CLI command with Go
 ### Machine OS
 
 - macOS
-- [Is planning] Linux
+- Linux
 - [Is planning] Windows
 
 ## Installation
@@ -44,6 +44,9 @@ This project migrates our hand-maded shell scripts to modern CLI command with Go
 | OS | command |
 |----|----|
 | macOS | brew tap b4m-oss/tap && brew install bwenv |
+| Linux | brew tap b4m-oss/tap && brew install bwenv |
+
+> Note: Linux requires [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to be installed first.
 
 ## Confirm installation
 
