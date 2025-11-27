@@ -3,6 +3,9 @@ package infra
 import (
 	"bwenv/src/core"
 	"fmt"
+	"path/filepath"
+	"sort"
+	"strings"
 	"sync"
 )
 
@@ -61,6 +64,61 @@ func (fs *MockFileSystem) Stat(path string) (core.FileInfo, error) {
 // MkdirAll はディレクトリを再帰的に作成します（モックでは何もしない）。
 func (fs *MockFileSystem) MkdirAll(path string, perm uint32) error {
 	return nil
+}
+
+// ReadDir はディレクトリ内のエントリを読み込みます。
+// ファイルマップからディレクトリ内のファイルを抽出します。
+func (fs *MockFileSystem) ReadDir(path string) ([]core.DirEntry, error) {
+	fs.mu.RLock()
+	defer fs.mu.RUnlock()
+
+	// パスを正規化
+	if !strings.HasSuffix(path, "/") {
+		path = path + "/"
+	}
+
+	// ディレクトリ内のファイルを抽出（重複を排除）
+	seen := make(map[string]bool)
+	var entries []core.DirEntry
+
+	for filePath := range fs.files {
+		// ファイルがこのディレクトリにあるかチェック
+		if strings.HasPrefix(filePath, path) {
+			relativePath := strings.TrimPrefix(filePath, path)
+			// サブディレクトリのファイルは除外（直接の子のみ）
+			if strings.Contains(relativePath, "/") {
+				continue
+			}
+			fileName := filepath.Base(filePath)
+			if !seen[fileName] {
+				seen[fileName] = true
+				entries = append(entries, &mockDirEntry{name: fileName, isDir: false})
+			}
+		}
+	}
+
+	// ファイル名でソート
+	sort.Slice(entries, func(i, j int) bool {
+		return entries[i].Name() < entries[j].Name()
+	})
+
+	return entries, nil
+}
+
+// mockDirEntry は core.DirEntry インターフェースの実装です。
+type mockDirEntry struct {
+	name  string
+	isDir bool
+}
+
+// Name はエントリ名を返します。
+func (e *mockDirEntry) Name() string {
+	return e.name
+}
+
+// IsDir はディレクトリかどうかを返します。
+func (e *mockDirEntry) IsDir() bool {
+	return e.isDir
 }
 
 // SetFile はテスト用にファイルを設定します。
@@ -187,6 +245,41 @@ func (m *MockBwClient) GetDotenvsFolderID() (string, error) {
 		return "", fmt.Errorf("dotenvs folder not found")
 	}
 	return folderID, nil
+}
+
+// DotenvsFolderExists は dotenvs フォルダが存在するかどうかを確認します。
+func (m *MockBwClient) DotenvsFolderExists() (bool, error) {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+
+	if !m.isUnlocked {
+		return false, fmt.Errorf("Bitwarden CLI is locked")
+	}
+
+	_, ok := m.folders["dotenvs"]
+	return ok, nil
+}
+
+// CreateDotenvsFolder は dotenvs フォルダを作成します。
+func (m *MockBwClient) CreateDotenvsFolder() error {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+
+	if !m.isUnlocked {
+		return fmt.Errorf("Bitwarden CLI is locked")
+	}
+
+	// すでに存在する場合はエラー
+	if _, ok := m.folders["dotenvs"]; ok {
+		return fmt.Errorf("dotenvs folder already exists")
+	}
+
+	// フォルダを作成
+	folderID := "folder-dotenvs-id"
+	m.folders["dotenvs"] = folderID
+	m.itemsByFolder[folderID] = []string{}
+
+	return nil
 }
 
 // ListItemsInFolder は指定フォルダ内のアイテム一覧を取得します。
