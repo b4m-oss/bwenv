@@ -40,6 +40,18 @@ func GetItemByName(folderID, itemName string) (*FullItem, error) {
 		return nil, fmt.Errorf("bw command is not installed")
 	}
 
+	// Sync with server first to ensure we have the latest data
+	syncCmd := exec.Command("bw", "sync")
+	syncOutput, syncErr := syncCmd.CombinedOutput()
+	if syncErr != nil {
+		// Sync failure is not critical, but log it
+		syncErrMsg := strings.TrimSpace(string(syncOutput))
+		if syncErrMsg != "" && !strings.Contains(syncErrMsg, "already synced") {
+			// Only log if it's not just "already synced" message
+			fmt.Printf("[INFO] Sync warning: %s (continuing anyway)\n", syncErrMsg)
+		}
+	}
+
 	// Execute bw list items command with folder filter
 	cmd := exec.Command("bw", "list", "items", "--folderid", folderID)
 	output, err := cmd.CombinedOutput()
@@ -75,11 +87,55 @@ func GetItemByName(folderID, itemName string) (*FullItem, error) {
 	// Find item by name
 	for _, item := range items {
 		if item.Name == itemName {
-			return &item, nil
+			// Get full item details using bw get item to ensure we have the latest data
+			return GetItemByID(item.ID)
 		}
 	}
 
 	return nil, nil // Item not found, but no error
+}
+
+// GetItemByID retrieves a full item by ID using bw get item
+func GetItemByID(itemID string) (*FullItem, error) {
+	// Check if bw command exists
+	_, err := exec.LookPath("bw")
+	if err != nil {
+		return nil, fmt.Errorf("bw command is not installed")
+	}
+
+	// Execute bw get item command
+	cmd := exec.Command("bw", "get", "item", itemID)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		errorMsg := strings.TrimSpace(string(output))
+		if errorMsg == "" {
+			errorMsg = err.Error()
+		}
+		return nil, fmt.Errorf("failed to get item: %s", errorMsg)
+	}
+
+	// Parse JSON output
+	var item FullItem
+	outputStr := strings.TrimSpace(string(output))
+	if outputStr == "" {
+		return nil, fmt.Errorf("no output from bw get item command")
+	}
+
+	// Check if Bitwarden CLI is locked
+	if strings.Contains(outputStr, "Master password") || strings.Contains(outputStr, "master password") {
+		return nil, ErrBitwardenLocked
+	}
+
+	// Check if output looks like JSON
+	if !strings.HasPrefix(outputStr, "{") {
+		return nil, fmt.Errorf("unexpected output from bw get item (not JSON): %s", outputStr)
+	}
+
+	if err := json.Unmarshal([]byte(outputStr), &item); err != nil {
+		return nil, fmt.Errorf("failed to parse item JSON (output: %s): %w", outputStr, err)
+	}
+
+	return &item, nil
 }
 
 // CreateNoteItem creates a new note item in Bitwarden
