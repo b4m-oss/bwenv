@@ -1,13 +1,16 @@
 # Todo
 
-## v0.5.0
+## v0.6.0
 
-- [ ] brew tapでの、配布。まずはmacOSビルドのみ
-- [ ] ローカルのmacOSで実行されるかを確認
+- [ ] E2Eテスト（Vaultwarden）
+- [ ] GPG署名
+- [ ] ドキュメント整備
+
 
 ## untill v1.0.0
 
 - [ ] local/develop/staging/productionなどの、各環境への対応
+- [ ] bwコマンド依存からの脱却
 
 
 ## after v1.0.0
