@@ -1,9 +1,8 @@
 # Todo
 
-# v0.9.0
+# v0.9.1
 
-- [ ] local/develop/staging/productionなどの、各環境への対応
-- [ ] dotenvsフォルダがない場合、新規作成するかどうか
+- [ ] Bugfix: プルリク作成時に、テストが発生しない
 
 
 # v0.10.0
