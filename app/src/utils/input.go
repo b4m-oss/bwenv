@@ -13,22 +13,21 @@ import (
 
 // SelectHostType prompts user to select between Cloud and Self-hosted
 func SelectHostType() (string, error) {
-	items := []string{"Cloud", "Self-hosted"}
-	
-	prompt := promptui.Select{
-		Label: ColorQuestion("Bitwarden Cloud or Self-hosted?"),
-		Items: items,
-		Size:  2,
-	}
+	reader := bufio.NewReader(os.Stdin)
+
+	for {
+		Question("Bitwarden Cloud or Self-hosted? (cloud/selfhosted): ")
+		input, err := reader.ReadString('\n')
+		if err != nil {
+			return "", fmt.Errorf("failed to read input: %w", err)
+		}
 
 	index, _, err := prompt.Run()
 	if err != nil {
 		return "", fmt.Errorf("failed to select host type: %w", err)
 	}
 
-	// Convert selection to lowercase format
-	if index == 0 {
-		return "cloud", nil
+		Warningln("Invalid input. Please enter 'cloud' or 'selfhosted'")
 	}
 	return "selfhosted", nil
 }
@@ -37,7 +36,7 @@ func SelectHostType() (string, error) {
 func InputURL() (string, error) {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Enter self-hosted URL: ")
+	Question("Enter self-hosted URL: ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		return "", fmt.Errorf("failed to read input: %w", err)
@@ -55,7 +54,7 @@ func InputURL() (string, error) {
 func InputEmail() (string, error) {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Enter email address: ")
+	Question("Enter email address: ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		return "", fmt.Errorf("failed to read input: %w", err)
@@ -71,7 +70,7 @@ func InputEmail() (string, error) {
 
 // InputPassword prompts user to enter password (hidden input)
 func InputPassword() (string, error) {
-	fmt.Print("Enter password: ")
+	Question("Enter password: ")
 
 	// Read password without echoing to terminal
 	passwordBytes, err := term.ReadPassword(int(syscall.Stdin))
