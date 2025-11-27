@@ -2,6 +2,13 @@
 
 bwenv is a CLI tool that uses [Bitwarden](https://bitwarden.com/) to manage .env files.
 
+## 🚨🚨 BREAKING CHANGE 🚨🚨
+
+From v0.9.0, bwenv stores multiple enviroment .env files, like `.env | .env.staging | .env.production`.
+Cause with this, stored data at Bitwarden Note item structure is changed.
+Stored data before v0.8.0 is no compatiblity after v0.9.0.
+We will not provide migration system.
+
 ## Overview
 
 bwenv commands supports your dotenv files are manged in your Bitwarden.
@@ -29,7 +36,7 @@ This project migrates our hand-maded shell scripts to modern CLI command with Go
 ### Machine OS
 
 - macOS
-- [Is planning] Linux
+- Linux
 - [Is planning] Windows
 
 ## Installation
@@ -37,6 +44,9 @@ This project migrates our hand-maded shell scripts to modern CLI command with Go
 | OS | command |
 |----|----|
 | macOS | brew tap b4m-oss/tap && brew install bwenv |
+| Linux | brew tap b4m-oss/tap && brew install bwenv |
+
+> Note: Linux requires [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to be installed first.
 
 ## Confirm installation
 
