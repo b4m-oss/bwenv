@@ -1,27 +1,51 @@
-# bwenv
+# bwsf
 
-bwenv is a CLI tool that uses [Bitwarden](https://bitwarden.com/) to manage .env files.
+bwsf (Bitwarden Secured Files) is a CLI tool that uses [Bitwarden](https://bitwarden.com/) to manage .env files.
 
 [日本語版はこちら](./README_ja.md)
 
 ## 🚨🚨 BREAKING CHANGE 🚨🚨
 
-From v0.9.0, bwenv stores multiple enviroment .env files, like `.env | .env.staging | .env.production`.
+### Changed CLI Name
+
+From v0.11.0, `bwenv` is re-named as `bwsf`. This is cause some bwenv commands already existed. We decieded to change our CLI name to avoid confusing.
+
+#### MIGRATE
+
+Rename youre setting directory.
+
+```bash
+mv ~/.config/bwenv ~/.config/bwsf
+```
+
+Uninstall your current version, and re-install latest version.
+
+```bash
+brew uninstall bwenv
+brew install bwsf
+```
+
+### Multiple `.env.enviroment` files
+
+From v0.9.0, bwsf stores multiple enviroment .env files, like `.env | .env.staging | .env.production`.
+
 Cause with this, stored data at Bitwarden Note item structure is changed.
+
 Stored data before v0.8.0 is no compatiblity after v0.9.0.
+
 We will not provide migration system.
 
 ## Overview
 
-bwenv commands supports your dotenv files are manged in your Bitwarden.
+bwsf commands supports your dotenv files are manged in your Bitwarden.
 
 Simple usage below:
 
 | command | |
 |----|----|
-| bwenv push | .env files push to your Bitwarden host |
-| bwenv pull | .env files pull from your Bitwarden host |
-| bwenv list | Show list stored .env files at your Bitwarden host |
+| bwsf push | .env files push to your Bitwarden host |
+| bwsf pull | .env files pull from your Bitwarden host |
+| bwsf list | Show list stored .env files at your Bitwarden host |
 
 ## Motivation
 
@@ -47,7 +71,10 @@ This project migrates our hand-maded shell scripts to modern CLI command with Go
 
 | OS | command |
 |----|----|
-| macOS / Linux | brew tap b4m-oss/tap && brew install bwenv |
+| macOS | brew tap b4m-oss/tap && brew install bwsf |
+| Linux | brew tap b4m-oss/tap && brew install bwsf |
+
+> Note: Linux requires [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to be installed first.
 
 ## Verify installation
 
@@ -61,7 +88,7 @@ bwenv -v
 ### Initial setup
 
 ```shell
-bwenv setup
+bwsf setup
 ```
 
 Set up your Bitwarden host and your account information.
@@ -70,23 +97,23 @@ Set up your Bitwarden host and your account information.
 
 ```shell
 cd /path/to/your_project
-bwenv pull
+bwsf pull
 ```
 
-bwenv searchs your .env data in Bitwarden host with the current directory's name.
+bwsf searchs your .env data in Bitwarden host with the current directory's name.
 If it exists, pull data as .env file at current directory.
-If already .env files current directory, bwenv asks overwrite them or not.
+If already .env files current directory, bwsf asks overwrite them or not.
 The data is stored as Bitwarden's Note item.
 
 ### Push .env file to Bitwarden host
 
-bwenv pushs your .env data at the current directory to your Bitwarden host.
-If it exists same name Bitwarden's Note item in dotenvs folder, bwenv asks overwrite it or not.
+bwsf pushs your .env data at the current directory to your Bitwarden host.
+If it exists same name Bitwarden's Note item in dotenvs folder, bwsf asks overwrite it or not.
 
 ### List up .env datas in Bitwarden host
 
 ```shell
-bwenv list
+bwsf list
 ```
 
 List up your .env datas from Bitwarden host.
@@ -95,7 +122,7 @@ They will showed up project names list on stdout.
 ## Uninstall
 
 ```shell
-brew uninstall bwenv
+brew uninstall bwsf
 ```
 
 ## FAQ
