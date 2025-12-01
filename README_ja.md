@@ -33,6 +33,15 @@ v0.8.0以前に保存されたデータは、v0.9.0以降では互換性があ�
 
 移行システムは提供しません。
 
+[English version is here.](./README.md)
+
+## 🚨🚨 破壊的変更 🚨🚨
+
+v0.9.0から、bwenvは`.env | .env.staging | .env.production`のような複数環境の.envファイルを保存するようになりました。
+これに伴い、BitwardenのNoteアイテムに保存されるデータ構造が変更されました。
+v0.8.0以前に保存されたデータは、v0.9.0以降との互換性がありません。
+マイグレーションシステムは提供されません。
+
 ## 概要
 
 bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサポートします。
@@ -57,6 +66,8 @@ bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサ�
 
 [bwコマンドのインストール方法については、こちらのドキュメントをお読みください。](https://bitwarden.com/help/cli/#download-and-install)
 
+** Homebrew **: インストールに必要です。
+
 ### 対応OS
 
 - macOS
@@ -67,24 +78,21 @@ bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサ�
 
 | OS | コマンド |
 |----|----|
-| macOS | brew tap b4m-oss/tap && brew install bwsf |
-| Linux | brew tap b4m-oss/tap && brew install bwsf |
-
-> 注意: Linuxでは、先に[Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux)をインストールする必要があります。
+| macOS / Linux| brew tap b4m-oss/tap && brew install bwenv |
 
 ## インストールの確認
 
 ```shell
-bwsf -v
-# bwsf version 0.5.5
+bwenv -v
+# bwenv version 0.5.5
 ```
 
-## 使用方法
+## 使い方
 
-### 初期設定
+### 初期セットアップ
 
 ```shell
-bwsf setup
+bwenv setup
 ```
 
 Bitwardenホストとアカウント情報を設定します。
@@ -93,23 +101,23 @@ Bitwardenホストとアカウント情報を設定します。
 
 ```shell
 cd /path/to/your_project
-bwsf pull
+bwenv pull
 ```
 
-bwsfは、現在のディレクトリ名でBitwardenホスト内の.envデータを検索します。
-存在する場合、現在のディレクトリに.envファイルとしてデータをプルします。
-既に.envファイルが現在のディレクトリに存在する場合、bwsfは上書きするかどうかを確認します。
+bwenvはカレントディレクトリの名前を使用して、Bitwardenホスト内の.envデータを検索します。
+存在する場合、カレントディレクトリに.envファイルとしてデータをプルします。
+カレントディレクトリに既に.envファイルがある場合、bwenvは上書きするかどうかを確認します。
 データはBitwardenのNoteアイテムとして保存されます。
 
 ### Bitwardenホストに.envファイルをプッシュ
 
-bwsfは、現在のディレクトリの.envデータをBitwardenホストにプッシュします。
-dotenvフォルダ内に同名のBitwarden Noteアイテムが存在する場合、bwsfは上書きするかどうかを確認します。
+bwenvはカレントディレクトリの.envデータをBitwardenホストにプッシュします。
+dotenvフォルダに同じ名前のBitwardenのNoteアイテムが存在する場合、bwenvは上書きするかどうかを確認します。
 
-### Bitwardenホストの.envデータ一覧表示
+### Bitwardenホストの.envデータ一覧
 
 ```shell
-bwsf list
+bwenv list
 ```
 
 Bitwardenホストから.envデータの一覧を取得します。
@@ -118,8 +126,46 @@ Bitwardenホストから.envデータの一覧を取得します。
 ## アンインストール
 
 ```shell
-brew uninstall bwsf
+brew uninstall bwenv
 ```
+
+## FAQ
+
+<details>
+<summary>Q. Bitwardenアカウントを持っていません。</summary>
+
+bwenvを使用するには、Bitwardenアカウントが必要です。
+
+[Bitwarden Cloud](https://bitwarden.com/)にアクセスして、アカウントを登録できます。
+
+無料で、クレジットカードも不要です。
+
+</details>
+
+<details>
+<summary>Q. Bitwardenのセルフホストユーザーです。</summary>
+
+もちろん、bwenvはBitwardenのセルフホストユーザーでも利用可能です。
+
+初期セットアップ時にセルフホストのURLを入力できます。
+
+</details>
+
+<details>
+<summary>Q. .envファイルはBitwardenホストにどのように保存されますか？</summary>
+
+.envファイルはJSON形式に変換されます。bwenvはBitwardenのNoteアイテムを作成し、NoteセクションにそのJSONを保存します。
+
+</details>
+
+<details>
+<summary>Q. Bitwardenのアカウント情報はどこに保存されますか？</summary>
+
+bwenvは設定データを`~/.config/bwenv/`に保存します。
+
+ただし、セキュリティ情報（パスワードなど）は一切保存されません。
+
+</details>
 
 ## 開発
 
