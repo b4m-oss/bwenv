@@ -1,5 +1,5 @@
 package cmd
 
 // Version is the current version of bwsf
-const Version = "0.11.0"
+const Version = "0.11.1"
 

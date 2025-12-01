@@ -77,7 +77,7 @@ bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサ�
 
 ```shell
 bwsf -v
-# bwsf version 0.11.0
+# bwsf version 0.11.1
 ```
 
 ## 使い方
