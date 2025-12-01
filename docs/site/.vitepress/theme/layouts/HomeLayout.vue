@@ -10,37 +10,57 @@
 </script>
 
 <template>
-  <main id="main">
-    <section class="home-layout__hero">
-      <slot name="hero" />
-    </section>
-    <section class="home-layout__features">
-      <slot name="features" />
-    </section>
-  </main>
+  <section id="hero">
+    <div class="container">
+      <section class="hero-main">
+        <slot name="hero" />
+      </section>
+      <section class="hero-features">
+        <slot name="features" />
+      </section>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-#main {
-  display: flex;
-  align-items: flex-start; /* 親（左右カラム）は中身の高さに合わせる */
-  gap: 1rem;
-}
+#hero  {
+  padding-top: 7rem;
+  .container {
+    background-color: #ccd5e6;
+    max-width: 130rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+    border-radius: .75rem;
+  }
 
-.home-layout__hero {
-  flex: 0 0 55%;
-}
+  .hero-main {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: start;
+    padding: 4.5rem;
 
-.home-layout__features {
-  flex: 0 0 45%;
+  }
 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
+  .heading-1 {
+    font-size: 8.8rem;
+  }
 
-.home-layout__features > * {
-  flex: 1 1 calc(50% - 1rem); /* 2 カラム & 各カードはコンテンツ量に応じた高さ */
+  .hero-features {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+
+
+  }
+
 }
 
 

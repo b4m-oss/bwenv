@@ -1,0 +1,41 @@
+html, body {
+  font-size: 62.5%;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h1,h2,h3,h4,h5,h6,header {
+  a {
+    color: var(--text-bold);
+  }
+}
+
+button {
+  border: 0;
+}
+
+main {
+  a {
+    text-decoration: underline;
+    color: var(--text-link);
+  }
+  a:hover {
+    color: var(--text-link-hover);
+  }
+  a:visited {
+    color: var(--text-link-visited);
+  }
+}
+
+a, a.button, nav a {
+  text-decoration: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+

@@ -1,0 +1,24 @@
+:root {
+  --bg-main: #efefef;
+  --bg-accent: #979797;
+  --bg-accent-light: #cccccc;
+  --bg-button: #3b3b3b;
+  --bg-button-dark: #1d1d1d;
+  --text-main: #585858;
+  --text-bold: #000000;
+  --text-option: #8d8d8d;
+  --text-light: #e2e2e2;
+  --text-lightest: #ffffff;
+  --text-link: #20368d;
+  --text-link-hover: #2468c6;
+  --text-link-visited: #391c86;
+  --storoke-light: #8d8d8d;
+  
+}
+
+:root.dark {
+  --bg-main: #051d2a;
+  --bg-accent: #3a4750;
+  --bg-accent-light: #556570;
+}
+

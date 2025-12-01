@@ -8,7 +8,7 @@ layout: home
 <HomeLayout>
 
 <template #hero>
-  <hgroup>
+  <hgroup class="title">
     <h1 class="heading-1">bwsf</h1>
     <div class="description">
       <p>.envファイルの管理はCLIに任せる</p>
@@ -19,9 +19,12 @@ layout: home
   </hgroup>
   
   <nav class="hero-nav">
-    <a href="/guide/getting-started/" class="button button-super">今すぐ始める</a>
-    <a href="https://github.com/b4m-oss/bwsf" class="button" taget="_blank" rel="noopener">GitHub</a>
-    <span class="dev-by">開発：<a href="https://b4m.co.jp/" target="_blank" rel="noopener">合同会社 知的・自転車</a></span>
+    <a href="/guide/getting-started/" class="button button-super getting-started">今すぐスタート<IconLoader name="icon-arrow" :width="14" :height="14" :strokeColor="'#ffffff'" /></a>
+    <a href="https://github.com/b4m-oss/bwsf" class="button github" taget="_blank" rel="noopener">GitHub</a>
+    <p class="caption">
+      <span class="dev-by">開発：<a href="https://b4m.co.jp/" target="_blank" rel="noopener">合同会社 知的・自転車</a></span>
+    </p>
+    
   </nav>
 </template>
 
@@ -31,6 +34,61 @@ layout: home
   <HeroFeatureCard title="組織・メンバーで活用しやすい" description="Bitwardenは、組織での利用も可能です。開発メンバーだけをdotenvsフォルダーに招待し、必要な権限を与えることができます。" />
   <HeroFeatureCard title="機密情報は外に出さない" description="Bitwardenは、オープンソースです。オンプレミスで運用することもできます。" />
 </template>
+
+<style scoped>
+.title {
+  .heading-1 {
+    font-size: 7.2rem;
+    font-weight: 800;
+    color: var(--text-bold);
+    margin-bottom: 3rem;
+  }
+
+  .description {
+    p {
+      font-weight: 800;
+      margin-bottom: 1.2em;
+    }
+    
+    margin-bottom: 3rem;
+  }
+}
+
+.hero-nav {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr 1fr;
+  width: fit-content;
+
+  column-gap: 2rem;
+
+  .getting-started {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .github {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .caption {
+    grid-column: 1/3;
+    grid-row: 2/3;
+
+    font-size: 1.1rem;
+    padding-top: 1.2rem;
+
+    a {
+      color: var(--text-main);
+    }
+  }
+
+
+
+}
+
+</style>
 
 ## クイックスタート
 
