@@ -10,19 +10,17 @@ import { useGoogleAnalytics } from './useGoogleAnalytics'
 // レイアウト・コンポーネントをここで登録しておきます。
 import HomeLayout from './layouts/HomeLayout.vue'
 import DefaultPageLayout from './layouts/DefaultPageLayout.vue'
+import AppLayout from './layouts/AppLayout.vue'
 import HeroSection from './components/HeroSection.vue'
+import HeroFeatureCard from './components/HeroFeatureCard.vue'
 
 // サイト全体で使うカスタム CSS
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
-  Layout() {
-    // 既存どおり、DefaultTheme.Layout をベースに CookieConsent を差し込みます。
-    return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(CookieConsent)
-    })
-  },
+  // サイト全体のレイアウトを完全にオリジナルの AppLayout に差し替えます。
+  Layout: AppLayout,
   enhanceApp({ app }) {
     // グローバルコンポーネントとして登録しておくことで、
     // 任意の Markdown ページから <HomeLayout> や <HeroSection> を使えるようにします。
@@ -34,6 +32,8 @@ export default {
 
     // components
     app.component('HeroSection', HeroSection)
+    app.component('HeroFeatureCard', HeroFeatureCard)
+    app.component('CookieConsent', CookieConsent)
   },
   setup() {
     useLanguageRedirect()
