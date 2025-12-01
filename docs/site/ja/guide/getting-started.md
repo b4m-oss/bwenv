@@ -1,8 +1,10 @@
 ---
 title: はじめに
 description: bwsfは、Bitwardenで.envファイルを安全に管理するコマンドラインです。簡単な使い方について説明しています。bwsfは、合同会社知的・自転車によって開発・メンテナンスされています。
+layout: subpage
 ---
 
+<SubPageLayout>
 # はじめに
 
 ## bwsfとは？
@@ -64,5 +66,5 @@ bwsf setup
 - [インストール](/ja/guide/installation) - お使いのプラットフォーム向けのインストール手順
 - [コマンド](/ja/guide/commands) - 利用可能なすべてのコマンドを学ぶ
 
-
+</SubPageLayout>
 

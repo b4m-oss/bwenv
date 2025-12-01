@@ -3,6 +3,7 @@ title: インストール
 description: このページでは、bwsfのmacOSとLinuxへのbwsfのインストール方法について説明しています。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
 # インストール
 
 ## 動作環境
@@ -96,3 +97,4 @@ bwsf setup
 
 以上で初期設定は終了です。お疲れ様でした！
 
+</SubPageLayout>

@@ -3,6 +3,8 @@ title: コマンド
 description: bwsfの全コマンドと使用例について説明しています。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
+
 # コマンド
 
 ## 概要
@@ -148,5 +150,4 @@ bwsf push
 bwsf pull
 ```
 
-
-
+</SubPageLayout>

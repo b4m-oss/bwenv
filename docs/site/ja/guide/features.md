@@ -3,6 +3,8 @@ title: 主な機能
 description: bwsfの.envファイル管理機能について、詳細を記述したドキュメントです。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
+
 # 主な機能
 
 `bwsf`は、.envファイルの円滑な管理を、[Bitwarden](https://bitwarden.com/)を用いて、セキュアに行うためのヘルパーコマンドです。
@@ -43,3 +45,5 @@ Bitwarden側では、`dotenvs`というフォルダに保存されます。（�
 `dotenvs`フォルダを、Bitwarden上で他のユーザーと共有することにより、.envファイルを、複数のメンバーで共有することができます。
 
 詳しくは、[Bitwardenのドキュメント](https://bitwarden.com/resources/)をご覧ください。
+
+</SubPageLayout>

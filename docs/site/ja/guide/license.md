@@ -3,6 +3,7 @@ title: ライセンス
 description: bwsfのライセンス情報（MIT License）についての情報です。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
 # `bwsf`のライセンスについて
 
 `bwsf`は、合同会社知的・自転車および、代表社員である四方宏樹が主導して開発し、著作権を保有しています。
@@ -34,3 +35,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+</SubPageLayout>

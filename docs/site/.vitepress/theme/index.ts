@@ -11,10 +11,11 @@ import 'reset-css'
 import HomeLayout from './layouts/HomeLayout.vue'
 import Header from './components/contents/ui/Header.vue'
 import Footer from './components/contents/ui/Footer.vue'
-import DefaultPageLayout from './layouts/DefaultPageLayout.vue'
+import SubPageLayout from './layouts/SubPageLayout.vue'
 import AppLayout from './layouts/AppLayout.vue'
 import HeroSection from './components/contents/HeroSection.vue'
 import HeroFeatureCard from './components/contents/HeroFeatureCard.vue'
+import SidebarMenu from './components/contents/ui/Sidebar.vue'
 
 // サイト全体で使うカスタム CSS
 import './styles/main.css'
@@ -28,10 +29,11 @@ export default {
     app.component('CookieSettings', CookieSettings)
     app.component('Header', Header)
     app.component('Footer', Footer)
+    app.component('SidebarMenu', SidebarMenu)
 
     // layouts
     app.component('HomeLayout', HomeLayout)
-    app.component('DefaultPageLayout', DefaultPageLayout)
+    app.component('SubPageLayout', SubPageLayout)
 
     // components
     app.component('HeroSection', HeroSection)

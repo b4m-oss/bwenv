@@ -3,6 +3,7 @@ title: アンインストール
 description: bwsfのアンインストール方法について記載しています。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
 # `bwsf`のアンインストール
 
 `bwsf`を使用しなくなった場合、アンインストールすることができます。
@@ -14,3 +15,4 @@ description: bwsfのアンインストール方法について記載していま
 ```bash
 brew uninstall bwsf
 ```
+</SubPageLayout>

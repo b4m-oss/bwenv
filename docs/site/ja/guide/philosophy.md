@@ -3,6 +3,7 @@ title: フィロソフィー
 description: bwsfの開発と設計の思想についてまとめました。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
 # 開発と設計の思想
 
 そもそも、`bwsf`というコマンドを探してたどり着いた人に、このコンテンツは不要かもしれません。
@@ -480,4 +481,7 @@ Bitwardenは、パスワードマネージャーの1つで、[オープンソー
 -----
 
 Kohki SHIKATA, CEO of Bicycle for Mind LLC
+
 Dec 1st 2025
+
+</SubPageLayout>
