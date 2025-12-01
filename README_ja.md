@@ -35,13 +35,6 @@ v0.8.0以前に保存されたデータは、v0.9.0以降では互換性があ�
 
 移行システムは提供しません。
 
-## 🚨🚨 破壊的変更 🚨🚨
-
-v0.9.0から、bwenvは`.env | .env.staging | .env.production`のような複数環境の.envファイルを保存するようになりました。
-これに伴い、BitwardenのNoteアイテムに保存されるデータ構造が変更されました。
-v0.8.0以前に保存されたデータは、v0.9.0以降との互換性がありません。
-マイグレーションシステムは提供されません。
-
 ## 概要
 
 bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサポートします。
@@ -78,13 +71,13 @@ bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサ�
 
 | OS | コマンド |
 |----|----|
-| macOS / Linux| brew tap b4m-oss/tap && brew install bwenv |
+| macOS / Linux| brew tap b4m-oss/tap && brew install bwsf |
 
 ## インストールの確認
 
 ```shell
-bwenv -v
-# bwenv version 0.11.0
+bwsf -v
+# bwsf version 0.11.0
 ```
 
 ## 使い方
@@ -92,7 +85,7 @@ bwenv -v
 ### 初期セットアップ
 
 ```shell
-bwenv setup
+bwsf setup
 ```
 
 Bitwardenホストとアカウント情報を設定します。
@@ -101,23 +94,23 @@ Bitwardenホストとアカウント情報を設定します。
 
 ```shell
 cd /path/to/your_project
-bwenv pull
+bwsf pull
 ```
 
-bwenvはカレントディレクトリの名前を使用して、Bitwardenホスト内の.envデータを検索します。
+bwsfはカレントディレクトリの名前を使用して、Bitwardenホスト内の.envデータを検索します。
 存在する場合、カレントディレクトリに.envファイルとしてデータをプルします。
-カレントディレクトリに既に.envファイルがある場合、bwenvは上書きするかどうかを確認します。
+カレントディレクトリに既に.envファイルがある場合、bwsfは上書きするかどうかを確認します。
 データはBitwardenのNoteアイテムとして保存されます。
 
 ### Bitwardenホストに.envファイルをプッシュ
 
-bwenvはカレントディレクトリの.envデータをBitwardenホストにプッシュします。
-dotenvフォルダに同じ名前のBitwardenのNoteアイテムが存在する場合、bwenvは上書きするかどうかを確認します。
+bwsfはカレントディレクトリの.envデータをBitwardenホストにプッシュします。
+dotenvフォルダに同じ名前のBitwardenのNoteアイテムが存在する場合、bwsfは上書きするかどうかを確認します。
 
 ### Bitwardenホストの.envデータ一覧
 
 ```shell
-bwenv list
+bwsf list
 ```
 
 Bitwardenホストから.envデータの一覧を取得します。
@@ -126,7 +119,7 @@ Bitwardenホストから.envデータの一覧を取得します。
 ## アンインストール
 
 ```shell
-brew uninstall bwenv
+brew uninstall bwsf
 ```
 
 ## FAQ
@@ -134,7 +127,7 @@ brew uninstall bwenv
 <details>
 <summary>Q. Bitwardenアカウントを持っていません。</summary>
 
-bwenvを使用するには、Bitwardenアカウントが必要です。
+bwsfを使用するには、Bitwardenアカウントが必要です。
 
 [Bitwarden Cloud](https://bitwarden.com/)にアクセスして、アカウントを登録できます。
 
@@ -145,7 +138,7 @@ bwenvを使用するには、Bitwardenアカウントが必要です。
 <details>
 <summary>Q. Bitwardenのセルフホストユーザーです。</summary>
 
-もちろん、bwenvはBitwardenのセルフホストユーザーでも利用可能です。
+もちろん、bwsfはBitwardenのセルフホストユーザーでも利用可能です。
 
 初期セットアップ時にセルフホストのURLを入力できます。
 
@@ -154,14 +147,14 @@ bwenvを使用するには、Bitwardenアカウントが必要です。
 <details>
 <summary>Q. .envファイルはBitwardenホストにどのように保存されますか？</summary>
 
-.envファイルはJSON形式に変換されます。bwenvはBitwardenのNoteアイテムを作成し、NoteセクションにそのJSONを保存します。
+.envファイルはJSON形式に変換されます。bwsfはBitwardenのNoteアイテムを作成し、NoteセクションにそのJSONを保存します。
 
 </details>
 
 <details>
 <summary>Q. Bitwardenのアカウント情報はどこに保存されますか？</summary>
 
-bwenvは設定データを`~/.config/bwenv/`に保存します。
+bwsfは設定データを`~/.config/bwsf/`に保存します。
 
 ただし、セキュリティ情報（パスワードなど）は一切保存されません。
 
@@ -176,8 +169,8 @@ bwenvは設定データを`~/.config/bwenv/`に保存します。
 ### 開発環境の起動
 
 ```
-git clone https://github.com/b4m-oss/bwenv.git
-cd bwenv
+git clone https://github.com/b4m-oss/bwsf.git
+cd bwsf
 make run
 ```
 
