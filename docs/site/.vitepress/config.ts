@@ -5,7 +5,7 @@ export default defineConfig({
   description: 'Manage .env files with Bitwarden CLI',
   
   // GitHub Pages base path
-  base: '/bwenv/',
+  base: '/bwsf/',
   
   // Clean URLs (no .html extension)
   cleanUrls: true,
