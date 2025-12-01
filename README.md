@@ -1,6 +1,6 @@
 # bwsf
 
-bwenv is a CLI tool that uses [Bitwarden](https://bitwarden.com/) to manage .env files.
+bwsf (Bitwarden Secured Files) is a CLI tool that uses [Bitwarden](https://bitwarden.com/) to manage .env files.
 
 ## 🚨🚨 BREAKING CHANGE 🚨🚨
 
@@ -69,8 +69,15 @@ This project migrates our hand-maded shell scripts to modern CLI command with Go
 
 | OS | command |
 |----|----|
+<<<<<<< HEAD
 | macOS | brew tap b4m-oss/tap && brew install bwenv |
 | Linux | brew tap b4m-oss/tap && brew install bwenv |
+=======
+| macOS | brew tap b4m-oss/tap && brew install bwsf |
+| Linux | brew tap b4m-oss/tap && brew install bwsf |
+
+> Note: Linux requires [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) to be installed first.
+>>>>>>> 5b69e604fa9a5a7b17e096c8c86d8778a30fd442
 
 ## Verify installation
 
