@@ -1,18 +1,18 @@
-# bwenv
+# bwsf
 
-bwenvは、[Bitwarden](https://bitwarden.com/)を使用して.envファイルを管理するCLIツールです。
+bwsf（Bitwarden Secured Files）は、[Bitwarden](https://bitwarden.com/)を使用して.envファイルを管理するCLIツールです。
 
 ## 概要
 
-bwenvコマンドは、Bitwardenで管理されているdotenvファイルをサポートします。
+bwsfコマンドは、Bitwardenで管理されているdotenvファイルをサポートします。
 
 簡単な使用方法は以下の通りです：
 
 | コマンド | |
 |----|----|
-| bwenv push | .envファイルをBitwardenホストにプッシュ |
-| bwenv pull | Bitwardenホストから.envファイルをプル |
-| bwenv list | Bitwardenホストに保存されている.envファイルの一覧を表示 |
+| bwsf push | .envファイルをBitwardenホストにプッシュ |
+| bwsf pull | Bitwardenホストから.envファイルをプル |
+| bwsf list | Bitwardenホストに保存されている.envファイルの一覧を表示 |
 
 ## 動機
 
