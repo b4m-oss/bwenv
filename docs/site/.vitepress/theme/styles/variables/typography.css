@@ -51,9 +51,16 @@ main {
   
 
   ul,ol {
-    background-color: var(--bg-accent);
+    background-color: var(--bg-accent-light);
     padding: 1em;
     border-radius: 0.5em;
+    margin-left: 0;
+    margin-bottom: 2rem;
+    border: 1px solid var(--storoke-light);
+    ul, ol {
+      border: 0;
+      margin: 0;
+    }
     &:last-child {
       margin-bottom: 0;
     }

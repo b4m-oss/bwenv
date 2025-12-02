@@ -17,5 +17,13 @@ const items = computed(() => {
   <ListMenu
     :items="items"
     variant="sidebar"
+    class="sidebar-menu"
   />
 </template>
+
+<style scoped>
+.sidebar-menu {
+  position: sticky;
+  top: 3rem;
+}
+</style>

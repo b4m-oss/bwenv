@@ -2,7 +2,7 @@
   --bg-main: #efefef;
   --bg-highlight: #f3f3f3;
   --bg-accent: #d0d0d0;
-  --bg-accent-light: #cccccc;
+  --bg-accent-light: #efefef;
   --bg-button: #3b3b3b;
   --bg-button-dark: #1d1d1d;
   --text-main: #585858;
@@ -19,7 +19,15 @@
 
 :root.dark {
   --bg-main: #051d2a;
+  --bg-highlight: #092533;
   --bg-accent: #3a4750;
-  --bg-accent-light: #556570;
+  --bg-accent-light: #1f292f;
+  --text-main: #c7c7c7;
+  --text-bold: #ffffff;
+  --text-option: #99c8de;
+  --text-link: #7388dd;
+  --text-link-hover: #2c60a9;
+  --text-link-visited: #7957d8;
+  --storoke-light: #061d2d;
 }
 

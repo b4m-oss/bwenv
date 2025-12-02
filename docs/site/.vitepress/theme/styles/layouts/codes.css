@@ -5,6 +5,10 @@ pre.vp-code  {
   background-color: #e8e4dd; /* うすいグレーなど。Shiki の色を邪魔しない程度に */
 }
 
+html.dark pre.vp-code {
+  background-color: #021018;
+}
+
 .vp-code code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1.4rem;

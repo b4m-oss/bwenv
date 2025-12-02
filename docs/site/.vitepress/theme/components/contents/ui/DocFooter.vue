@@ -105,15 +105,21 @@ const getLink = (item: any) => {
   <nav v-if="hasNavigation" class="doc-footer">
     <div class="doc-footer-nav">
       <div v-if="prev" class="doc-footer-nav-item doc-footer-nav-prev">
-        <span class="doc-footer-nav-label">{{ prevLabel }}</span>
+        <span class="doc-footer-nav-label">
+          <IconLoader name="icon-chevron" :width="12" :height="12" flip="horizontal" fill="transparent" :stroke-color="'var(--text-option)'" aria-hidden="true" />
+          {{ prevLabel }}
+        </span>
         <a :href="getLink(prev)" class="doc-footer-nav-link">
           {{ prev?.text || '' }}
         </a>
       </div>
-      <div v-else class="doc-footer-nav-item doc-footer-nav-prev"></div>
+      <div v-else class="doc-footer-nav-item doc-footer-nav-prev doc-footer-nav-item-empty" aria-hidden="true"></div>
       
       <div v-if="next" class="doc-footer-nav-item doc-footer-nav-next">
-        <span class="doc-footer-nav-label">{{ nextLabel }}</span>
+        <span class="doc-footer-nav-label">
+          {{ nextLabel }}
+          <IconLoader name="icon-chevron" :width="12" :height="12" fill="transparent" :stroke-color="'var(--text-option)'" aria-hidden="true" />
+        </span>
         <a :href="getLink(next)" class="doc-footer-nav-link">
           {{ next?.text || '' }}
         </a>
@@ -139,6 +145,9 @@ const getLink = (item: any) => {
 .doc-footer-nav-item {
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--storoke-light);
+  border-radius: 0.25em;
+  padding: .5em .75em;
 }
 
 .doc-footer-nav-prev {
@@ -147,6 +156,10 @@ const getLink = (item: any) => {
 
 .doc-footer-nav-next {
   text-align: right;
+}
+
+.doc-footer-nav-item-empty {
+  opacity: 0;
 }
 
 .doc-footer-nav-label {
