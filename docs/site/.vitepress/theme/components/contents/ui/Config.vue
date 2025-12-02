@@ -41,10 +41,17 @@ import AppLanguageSwitch from '../../common/ui/AppLanguageSwitch.vue';
 }
 
 .config-button {
-  background-color: rgba(164, 164, 164, 0.15) !important;
-  border-radius: 0.25rem;
+  border-radius: .4rem;
+  width: 3.8rem;
+  height: 3.8rem;
+  color: var(--text-option);
   padding: 0.5rem;
+  cursor: pointer;
   transition: background-color 0.2s;
+  border: 1px solid var(--storoke-light);
+  &:hover {
+    background-color: var(--bg-accent);
+  }
 }
 
 .config__dropdown {
@@ -53,10 +60,10 @@ import AppLanguageSwitch from '../../common/ui/AppLanguageSwitch.vue';
   right: 0;
   margin-top: 0.25rem;
   min-width: 16rem;
-  padding: 0.75rem 1rem;
+  padding: 1.25rem;
   border-radius: 0.5rem;
   background: var(--bg-main);
-  border: 1px solid var(--text-option);
+  border: 1px solid var(--stroke-light);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   z-index: 100;
 
@@ -66,16 +73,22 @@ import AppLanguageSwitch from '../../common/ui/AppLanguageSwitch.vue';
 }
 
 .config__menu {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.25rem;
+  gap: .5rem;
+  margin-bottom: 1.2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   b {
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--text-option);
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.45rem;
   }
 }
 </style>

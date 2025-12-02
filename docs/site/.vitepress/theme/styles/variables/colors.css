@@ -2,6 +2,7 @@
   --bg-main: #efefef;
   --bg-highlight: #f3f3f3;
   --bg-accent: #d0d0d0;
+  --bg-accent-dark: #959595;
   --bg-accent-light: #efefef;
   --bg-button: #3b3b3b;
   --bg-button-dark: #1d1d1d;
@@ -13,8 +14,8 @@
   --text-link: #20368d;
   --text-link-hover: #2468c6;
   --text-link-visited: #391c86;
-  --storoke-light: #bbbbbb;
-  
+  --stroke-light: #bbbbbb;
+  --stroke-option: #999999;
 }
 
 :root.dark {
@@ -27,7 +28,8 @@
   --text-option: #99c8de;
   --text-link: #7388dd;
   --text-link-hover: #2c60a9;
-  --text-link-visited: #7957d8;
-  --storoke-light: #061d2d;
+  --text-link-visited: #9a75ff;
+  --stroke-light: #68767f;
+  --stroke-option: #3a4e55;
 }
 

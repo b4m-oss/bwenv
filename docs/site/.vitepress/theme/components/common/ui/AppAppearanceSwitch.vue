@@ -265,6 +265,9 @@ function onSelect(mode: Appearance, close: () => void) {
 <style scoped>
 .app-appearance-switch {
   position: relative;
+  width: 100%;
+  border: 1px solid var(--stroke-option);
+  border-radius: .3rem;
 
   .app-appearance-switch__button {
     display: inline-flex;

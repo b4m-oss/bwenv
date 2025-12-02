@@ -26,4 +26,11 @@ const items = computed(() => {
   position: sticky;
   top: 3rem;
 }
+
+@media (max-width: 860px) {
+  .sidebar-menu {
+    position: static;
+    top: auto;
+  }
+}
 </style>

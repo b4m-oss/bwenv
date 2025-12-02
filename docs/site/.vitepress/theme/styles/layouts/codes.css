@@ -1,4 +1,5 @@
 pre.vp-code  {
+  margin-top: 3.5rem;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   overflow-x: auto;
@@ -17,6 +18,70 @@ html.dark pre.vp-code {
 /* Shiki が出力するコードフェンス用の色適用 */
 .vp-code span {
   color: var(--shiki-light);
+}
+
+[class^="language-"] {
+  position: relative;
+  .lang {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--main-text);
+    background: var(--bg-accent);
+    display: inline-block;
+    padding: .25em .5em;
+    border-radius: .3rem;
+    position: absolute;
+    top: -.85em;
+    left: 1.5em;
+    z-index: 10;
+  }
+}
+
+.copy {
+  position: absolute;
+  top: .4rem;
+  right: .6rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: .2rem;
+  border: none;
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out, transform 0.1s ease-out;
+}
+
+html.dark .copy {
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--text-lightest);
+}
+
+.copy:hover {
+  background: rgba(15, 23, 42, 0.12);
+  color: var(--text-bold);
+  transform: translateY(-1px);
+}
+
+html.dark .copy:hover {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.copy:active {
+  transform: translateY(0);
+}
+
+.copy .copy-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.copy.is-copied {
+  background: var(--accent-main);
+  color: #fff;
 }
 
 html.dark .vp-code span,

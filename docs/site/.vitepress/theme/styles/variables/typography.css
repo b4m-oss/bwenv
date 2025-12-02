@@ -16,8 +16,8 @@ main {
     font-weight: bold;
     color: var(--text-option);
     line-height: 1.15;
-    margin-top: 4.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 5.5rem;
+    margin-bottom: 2rem;
   }
   h3, heading-3 {
     font-size: 1.8rem;

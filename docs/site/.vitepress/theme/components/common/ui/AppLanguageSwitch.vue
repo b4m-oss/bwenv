@@ -168,6 +168,10 @@ const currentLabel = computed(() => {
 .app-language-switch {
   position: relative;
 
+  width: 100%;
+  border: 1px solid var(--stroke-option);
+  border-radius: .4rem;
+
   .button {
     font-size: 1.1rem;
     padding: 0.5rem 1rem;

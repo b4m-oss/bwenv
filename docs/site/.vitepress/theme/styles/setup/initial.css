@@ -39,3 +39,8 @@ a, a.button, nav a {
   box-sizing: border-box;
 }
 
+hr {
+  border: 0;
+  border-top: 2px solid var(--storoke-light);
+  margin: 2rem 0;
+}

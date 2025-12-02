@@ -252,6 +252,8 @@ const handleSmoothScroll = (e: Event, header: any) => {
   padding: 0;
   margin: 0.5rem 0 0 0;
   padding-left: 1.2rem;
+  margin-top: .7rem;
+  margin-bottom: 2rem;
 }
 
 .toc-item {
