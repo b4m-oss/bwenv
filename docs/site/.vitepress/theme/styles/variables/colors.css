@@ -1,5 +1,6 @@
 :root {
   --bg-main: #efefef;
+  --bg-highlight: #f3f3f3;
   --bg-accent: #979797;
   --bg-accent-light: #cccccc;
   --bg-button: #3b3b3b;
@@ -12,7 +13,7 @@
   --text-link: #20368d;
   --text-link-hover: #2468c6;
   --text-link-visited: #391c86;
-  --storoke-light: #8d8d8d;
+  --storoke-light: #bbbbbb;
   
 }
 

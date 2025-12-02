@@ -16,6 +16,8 @@ import AppLayout from './layouts/AppLayout.vue'
 import HeroSection from './components/contents/HeroSection.vue'
 import HeroFeatureCard from './components/contents/HeroFeatureCard.vue'
 import SidebarMenu from './components/contents/ui/Sidebar.vue'
+import TableOfContents from './components/contents/ui/TableOfContents.vue'
+import DocFooter from './components/contents/ui/DocFooter.vue'
 
 // サイト全体で使うカスタム CSS
 import './styles/main.css'
@@ -30,6 +32,8 @@ export default {
     app.component('Header', Header)
     app.component('Footer', Footer)
     app.component('SidebarMenu', SidebarMenu)
+    app.component('TableOfContents', TableOfContents)
+    app.component('DocFooter', DocFooter)
 
     // layouts
     app.component('HomeLayout', HomeLayout)

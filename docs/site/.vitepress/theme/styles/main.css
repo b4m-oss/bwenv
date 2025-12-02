@@ -1,4 +1,11 @@
 @import './variables/colors.css';
 @import './setup/initial.css';
+@import './variables/typography.css';
 @import './components/button.css';
-@import './layouts/codes.css';
+@import './layouts/codes.css';  
+@import './layouts/layout.css';
+
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}

@@ -5,6 +5,7 @@ layout: subpage
 ---
 
 <SubPageLayout>
+
 # はじめに
 
 ## bwsfとは？

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import TableOfContents from '../components/contents/ui/TableOfContents.vue'
+import DocFooter from '../components/contents/ui/DocFooter.vue'
+
 // 一般的なページ用のレイアウトサンプルです。
 // 例:
 //   <DefaultPageLayout>
@@ -15,25 +18,18 @@
       <SidebarMenu />
     </nav>
     <main id="main">
-      <slot />
+      <div class="content-container">
+        <slot />
+        <DocFooter />
+      </div>
     </main>
+    <aside class="subpage-aside">
+      <TableOfContents />
+      <slot name="aside" />
+    </aside>
   </div>
 </template>
 
 <style scoped>
-.subpage {
-  padding: 7rem;
-  display: grid;
-  grid-template-columns: 20rem 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "nav main";
-  .subpage-nav {
-    grid-area: nav;
-  }
-  #main {
-    grid-area: main;
-  }
-}
+
 </style>
-
-

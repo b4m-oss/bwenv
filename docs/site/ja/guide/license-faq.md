@@ -4,6 +4,7 @@ description: bwsfのライセンスに関するよくある質問について、
 ---
 
 <SubPageLayout>
+
 # ライセンスに関するよくある質問
 
 ## Q: `bwsf`は、無料で使えるのですか？

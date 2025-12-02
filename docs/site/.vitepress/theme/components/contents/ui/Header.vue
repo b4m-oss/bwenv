@@ -25,18 +25,17 @@ import Config from './Config.vue';
         <li class="header-nav-link"><a :href="withBase('/ja/guide/commands')">コマンド一覧</a></li>
         <li class="header-nav-link"><a :href="withBase('/ja/guide/features')">機能</a></li>
       </ul>
+      <div class="header-configuration">
+        <Config />
+      </div>
     </nav>
-
-    <div class="header-configuration">
-      <Config />
-    </div>
   </header>
 </template>
 
 <style scoped>
 #global-header {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 30% 70%;
   grid-template-rows: 1fr;
   align-items: center;
 
@@ -68,6 +67,21 @@ import Config from './Config.vue';
       font-size: 1.1rem;
       font-weight: 400;
       color: var(--text-option);
+    }
+  }
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .app-dropdown {
+    margin-left: 2em;
+    button {
+      background-color: #a4a4a4;
     }
   }
 

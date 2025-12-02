@@ -1,0 +1,66 @@
+:root {
+  --default-fz: 16;
+  --mobile-fz: 14.5;
+}
+
+main {
+  h1, heading-1 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: var(--text-bold);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+  h2, heading-2 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: var(--text-option);
+    line-height: 1.15;
+    margin-top: 4.5rem;
+    margin-bottom: 1.5rem;
+  }
+  h3, heading-3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  h4, heading-4 {
+    font-size: 2.4rem;
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+  }
+  h5, heading-5 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+  h6, heading-6 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+  }
+  /* .heading-1,
+  .heading-2,
+  .heading-3,
+  .heading-4,
+  .heading-5,
+  .heading-6 {
+    margin-bottom: 1.5rem;
+  } */
+  
+  p {
+    margin-bottom: 2rem;
+  }
+  
+  ul {
+    margin-bottom: 1rem;
+  }
+  
+  [class^="language-"] {
+    margin-bottom: 2rem;
+    pre {
+      padding: 2rem;
+    }
+  }
+}

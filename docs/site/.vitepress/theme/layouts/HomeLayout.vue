@@ -20,13 +20,16 @@
       </section>
     </div>
   </section>
+  <div class="home-content">
+    <slot />
+  </div>
 </template>
 
 <style scoped>
 #hero  {
   padding-top: 7rem;
   .container {
-    background-color: #ccd5e6;
+    background-color: #e5e5e6;
     max-width: 130rem;
     margin: 0 auto;
     display: grid;
@@ -61,6 +64,12 @@
 
   }
 
+}
+
+.home-content {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
 }
 
 

@@ -2,7 +2,6 @@
 title: ホーム
 description: Bitwarden CLIで.envファイルを安全に管理
 titleTemplate: bwsf - .env管理をもっと手軽に
-layout: home
 ---
 
 <script setup lang="ts">

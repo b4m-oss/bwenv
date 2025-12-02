@@ -3,6 +3,8 @@ title: Cookieポリシー
 description: 当サイトでのCookieの使用について記載しています。bwsfは、.envファイルを一括して管理するオープンソースのCLIコマンドです。合同会社知的・自転車によって開発・メンテナンスされています。
 ---
 
+<SubPageLayout>
+
 # Cookieポリシー
 
 *最終更新日: 2025年12月*
@@ -63,3 +65,5 @@ Googleのプライバシー慣行の詳細については、[Googleプライバ�
 ## お問い合わせ
 
 当Cookieポリシーについてご質問がある場合は、[GitHubリポジトリ](https://github.com/b4m-oss/bwenv)からお問い合わせください。
+
+</SubPageLayout>
