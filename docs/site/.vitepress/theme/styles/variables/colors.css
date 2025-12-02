@@ -1,9 +1,15 @@
 :root {
-  --bg-main: #efefef;
-  --bg-highlight: #f3f3f3;
-  --bg-accent: #d0d0d0;
+  --bg-main: #dedede;
+  --bg-highlight: #e4e4e4;
+  --bg-accent: #c2c2c2;
   --bg-accent-dark: #959595;
   --bg-accent-light: #efefef;
+  --bg-super-gradient: linear-gradient(
+    135deg,
+    rgb(22, 161, 192) 0%,
+    rgb(221, 18, 221) 60%,
+    rgb(221, 18, 221) 100%
+  );
   --bg-button: #3b3b3b;
   --bg-button-dark: #1d1d1d;
   --text-main: #585858;
@@ -23,6 +29,12 @@
   --bg-highlight: #092533;
   --bg-accent: #3a4750;
   --bg-accent-light: #1f292f;
+  --bg-super-gradient: linear-gradient(
+    135deg,
+    rgb(39, 215, 255) 0%,
+    rgb(233, 27, 233) 60%,
+    rgb(233, 27, 233) 100%
+  );
   --text-main: #c7c7c7;
   --text-bold: #ffffff;
   --text-option: #99c8de;

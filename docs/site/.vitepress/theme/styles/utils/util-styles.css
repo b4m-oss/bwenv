@@ -1,0 +1,7 @@
+.super-gradient-text {
+  background: var(--bg-super-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;              /* 一般的な指定 */
+  -webkit-text-fill-color: transparent; /* Safari / 一部ブラウザ向け */
+}

@@ -24,4 +24,10 @@
   &:visited {
     color: var(--text-light);
   }
+
+  &.button-super-gradient {
+    background: var(--bg-super-gradient);
+    color: var(--text-lightest) !important;
+    border: 0;
+  }
 }

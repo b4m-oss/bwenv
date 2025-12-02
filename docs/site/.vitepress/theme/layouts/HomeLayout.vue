@@ -27,9 +27,9 @@
 
 <style scoped>
 #hero  {
-  padding-top: 7rem;
+  padding-top: 5rem;
   .container {
-    background-color: #e5e5e6;
+    background-color: var(--bg-highlight);
     max-width: 130rem;
     margin: 0 auto;
     display: grid;
@@ -61,9 +61,35 @@
     grid-auto-rows: auto;
     grid-auto-flow: row;
 
-
   }
 
+}
+
+@media (max-width: 860px) {
+  #hero {
+    margin: 0 1em;
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+    }
+    .hero-main {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    .hero-features {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  #hero {
+    .hero-features {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+  }
 }
 
 .home-content {

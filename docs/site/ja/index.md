@@ -16,7 +16,7 @@ import { withBase } from 'vitepress'
     <IconLoader name="icon-chevron" :width="64" :height="64" fill="transparent" class="prompt-icon" />
     bwsf
     </h1>
-    <div class="description">
+    <div class="description super-gradient-text">
       <p>.envファイルの管理はCLIに任せる</p>
       <p>プロジェクトも、環境も、メンバーも、すべて一元管理する</p>
       <p>オンプレミスでの利用も可能</p>
@@ -25,7 +25,7 @@ import { withBase } from 'vitepress'
   </hgroup>
   
   <nav class="hero-nav">
-    <a :href="withBase('/ja/guide/getting-started')" class="button button-super getting-started">今すぐスタート<IconLoader name="icon-arrow" :width="14" :height="14" :strokeColor="'#ffffff'" /></a>
+    <a :href="withBase('/ja/guide/getting-started')" class="button button-super-gradient getting-started">今すぐスタート<IconLoader name="icon-arrow" :width="14" :height="14" :strokeColor="'#ffffff'" /></a>
     <a href="https://github.com/b4m-oss/bwsf" class="button github" taget="_blank" rel="noopener"><IconLoader name="icon-github" :width="17" :height="17" fill="#ffffff" />GitHub</a>
     <p class="caption">
       <span class="dev-by">開発：<a href="https://b4m.co.jp/" target="_blank" rel="noopener">合同会社 知的・自転車</a></span>

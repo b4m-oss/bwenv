@@ -98,4 +98,14 @@ import Config from './Config.vue';
     }
   }
 }
+
+@media (max-width: 860px) {
+  #global-header {
+    .logo {
+      .caption {
+        display: none;
+      }
+    }
+  }
+}
 </style>
